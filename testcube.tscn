@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://csc53yahgk581"]
+
+[ext_resource type="Texture2D" uid="uid://b4o07gdpxxqbi" path="res://dragon-game/graybricks_albedo.png" id="1_duke5"]
+[ext_resource type="Texture2D" uid="uid://chorle1aicn6o" path="res://dragon-game/graybricks_normal.png" id="2_uk63p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efaxg"]
+albedo_texture = ExtResource("1_duke5")
+normal_enabled = true
+normal_texture = ExtResource("2_uk63p")
+uv1_scale = Vector3(2, 2, 2)
+uv1_offset = Vector3(0.5, 0.12, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_31ot3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bd5vm"]
+
+[node name="Testcube" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_efaxg")
+mesh = SubResource("BoxMesh_31ot3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_bd5vm")
